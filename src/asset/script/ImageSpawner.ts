@@ -1,6 +1,7 @@
 import { Vector2, Vector3, Quaternion } from "three/src/Three";
 import { BoxCollider2D, Component, CoroutineIterator, CssSpriteRenderer, PrefabRef, RigidBody2D, WaitForSeconds, WaitWhile } from "the-world-engine";
 import { ImageSearch, SearchResult } from "./ImageSearch";
+import { DragController } from "./DragController";
 
 export class ImageSpawner extends Component {
     public maxSpawnDelay = 2;
@@ -70,6 +71,7 @@ export class ImageSpawner extends Component {
                     })
                     .withComponent(RigidBody2D)
                     .withComponent(BoxCollider2D)
+                    .withComponent(DragController)
                     .getComponent(CssSpriteRenderer, renderer)
                     .getComponent(BoxCollider2D, collider));
                 

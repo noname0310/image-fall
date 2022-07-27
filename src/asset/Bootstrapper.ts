@@ -26,6 +26,7 @@ export class Bootstrapper extends BaseBootstrapper {
                 .withComponent(Camera, c => {
                     c.backgroundColor = new Color(0.1, 0.1, 0.1);
                 })
+
                 .withChild(instantiater.buildGameObject("TextInput", new Vector3(0, 0, 1))
                     .withComponent(CssHtmlElementRenderer, c => {
                         const div = document.createElement("div");
