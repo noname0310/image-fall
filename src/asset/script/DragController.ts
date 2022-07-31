@@ -45,7 +45,7 @@ export class DragController extends Component {
         this.engine.input.onPointerLeave.removeListener(this.onPointerLeave);
         this.engine.input.onPointerUp.removeListener(this.onPointerLeave);
 
-        this._renderer!.htmlElementEventHandler!.onmousedown = null;
+        if (this._renderer!.htmlElementEventHandler) this._renderer!.htmlElementEventHandler.onmousedown = null;
         this._rigidBody = null;
         this._renderer = null;
     }
@@ -61,7 +61,6 @@ export class DragController extends Component {
                 .set(rigidBodyPosition.x, rigidBodyPosition.y)
                 .sub(mousePosition)
                 .multiplyScalar(-40);
-            console.log(force.x, force.y);
             rigidBody.addForce(force);
         }
     }
